@@ -1,0 +1,8 @@
+/* Acquisition has no workspace navigation rail. Keep all workspace rules intact. */
+.product-shell[data-role][data-surface="onboarding"] {
+  --shell-nav-width: 0px;
+  padding-left: 0;
+}
+.product-shell[data-role="john"][data-surface="onboarding"] > .app-header > .brand {
+  position: static;
+}

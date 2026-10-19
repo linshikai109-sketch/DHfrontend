@@ -1,0 +1,36 @@
+.onboarding-materials-entry {
+  margin: 18px 0;
+  padding: 0;
+  border: 1px solid #dce4ed;
+  border-radius: 14px;
+  background: #fff;
+  max-width: 100%;
+  min-width: 0;
+}
+.onboarding-materials-entry > summary {
+  cursor: pointer;
+  padding: 14px 16px;
+  color: #254365;
+  font-size: 13px;
+  font-weight: 600;
+}
+.onboarding-materials-entry > summary:focus-visible {
+  outline: 2px solid #335f91;
+  outline-offset: 3px;
+  border-radius: 14px;
+}
+.onboarding-materials-entry[open] > :not(summary) {
+  margin: 12px;
+}
+.onboarding-materials-entry input,
+.onboarding-materials-entry select,
+.onboarding-materials-entry textarea { max-width: 100%; min-width: 0; }
+.onboarding-materials-entry .row { flex-wrap: wrap; }
+.john-materials-review { margin:24px 0; padding:20px; border:1px solid #dce4ed; border-radius:14px; background:#fff; min-width:0; }
+.john-materials-review h2 { font-size:18px; margin:0; }
+.john-materials-review p { line-height:1.7; margin:12px 0; }
+.john-materials-review .summary-item { display:grid; gap:8px; min-width:0; }
+.john-materials-review a { overflow-wrap:anywhere; color:#315b89; }
+.john-materials-review label { display:grid; gap:6px; }
+.john-materials-review select { max-width:100%; min-width:0; padding:8px; border:1px solid #cddae8; border-radius:8px; background:#fff; color:#1b3551; font:inherit; }
+.john-materials-review small { color:#52657d; }

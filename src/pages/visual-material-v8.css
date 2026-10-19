@@ -1,0 +1,233 @@
+/* Material implementation of the approved blue/white references. Graph content stays data-bound. */
+:root { --material-blue:#35639c; --material-rule:#d8e3f0; --material-paper:#fbfdff; }
+.development-report { width:min(1120px,calc(100vw - 40px)); padding:28px 34px; background:var(--material-paper); border:1px solid #dae4ef; border-radius:12px; }
+.report-masthead { display:flex; align-items:center; gap:24px; padding-bottom:18px; margin-bottom:14px; border-bottom:1px solid var(--material-rule); }
+.report-brand { display:flex; align-items:center; gap:9px; color:#142d4f; font-size:26px; }
+.report-brand .brand-mark { position:relative; display:block; width:36px; height:36px; overflow:hidden; border-radius:9px; background:#162230; }
+.report-brand .brand-mark img { position:absolute; max-width:none; width:393.143%; height:auto; left:-62.857%; top:-60%; }
+.development-report .report-masthead h2 { font-size:19px; font-weight:500; margin:0; padding-left:24px; border-left:1px solid #b8c9df; }
+.report-masthead-note { margin-left:auto; font-size:13px; color:#617185; }
+.development-report .role-story-card { margin:12px 0 20px; padding:10px 6px 20px; border:0; border-radius:0; background:none; box-shadow:none; gap:34px; align-items:center; }
+.development-report .role-avatar-static { width:230px; min-width:230px; height:230px; background:none; border-radius:0; }
+.role-paper-art { display:block; width:100%; height:100%; object-fit:contain; }
+.development-report .role-story-card>div:last-child { min-width:0; }
+.development-report .role-story-card .eyebrow { border-left:3px solid #35639c; padding-left:12px; font-size:14px; }
+.development-report .role-story-card h3 { font-size:clamp(28px,3vw,40px); line-height:1.4; margin:14px 0 12px; letter-spacing:-.025em; }
+.development-report .role-story-text { font-size:19px; line-height:1.8; max-width:700px; }
+.development-report .role-basis,.development-report .role-evidence { margin:6px 0 0; font-size:13px; color:#617185; }
+.report-reading-note { margin:0 0 18px; font-size:14px; }
+.development-report .narrative-section { display:grid; grid-template-columns:156px minmax(0,1fr) minmax(0,1fr); gap:24px; padding:26px 0; margin:0; border-radius:0; background:none; border-top:1px solid var(--material-rule); }
+.narrative-section>h3 { grid-column:1; grid-row:1/span 3; display:flex; flex-direction:row; align-items:center; gap:16px; margin:0; font-size:28px; line-height:1.4; }
+.report-section-number { padding-right:14px; border-right:1px solid #b8c9df; background:none; color:#4d7bb4; font-size:32px; font-weight:400; width:auto; height:auto; justify-content:start; border-radius:0; margin:0; }
+.narrative-section>.section-interpretation { grid-column:2/-1; grid-row:1; margin:0; min-width:0; }
+.report-illustrated .narrative-section>.section-interpretation { grid-column:2; margin:0; padding-top:4px; font-size:17px; line-height:1.85; color:#435d7d; }
+.report-past-graphic,.report-present-graphic,.report-future-graphic { grid-column:3; grid-row:1; min-width:0; }
+.report-illustrated .graphic-node { padding:12px 0; background:none; border-radius:0; border:0; box-shadow:none; }
+.report-illustrated h4 { font-size:17px; color:#142d4f; }
+.report-illustrated .graphic-node p { font-size:14px; line-height:1.7; }
+.graphic-legend { display:flex; align-items:center; gap:8px; font-weight:500; font-size:14px; margin:0 0 12px; }
+.experience-timeline li { grid-template-columns:22px minmax(0,1fr); gap:12px; padding-bottom:18px; }
+.timeline-mark { padding-top:18px; }
+.timeline-mark i { width:12px; height:12px; box-shadow:0 0 0 5px #35639c0c; }
+.timeline-mark>span { top:33px; bottom:-22px; width:20px; }
+.timeline-mark>span::before { display:none; }
+.timeline-mark svg { width:20px; height:100%; overflow:visible; fill:none; stroke:#5681b9; stroke-width:1.5; }
+.undated-contributions { margin:0 0 0 34px; padding-top:12px; border-top:1px dashed #d7e1ef; }
+.practice-relations { gap:12px; }
+.practice-relations li { grid-template-columns:minmax(0,1fr) 44px minmax(0,1fr); }
+.practice-relations .graphic-node { display:flex; flex-direction:column; align-items:center; text-align:center; gap:10px; font-size:14px; font-weight:500; line-height:1.65; }
+.practice-relations .graphic-node>svg { width:44px; height:44px; padding:10px; background:#e8f0fa; border-radius:50%; color:#35639c; box-shadow:inset 0 1px 0 #fff; flex:none; }
+.report-illustrated .approach-node { background:none; color:var(--ink); }
+.relation-arrow { color:#5681b9; padding-top:13px; align-content:start; }
+.relation-arrow svg { width:100%; fill:none; stroke:currentColor; stroke-width:1.7; }
+.report-conditions { background:none; border:0; border-top:1px solid var(--material-rule); border-radius:0; margin-top:18px; padding:14px 0 0; color:#536780; }
+.report-unknown { display:flex; align-items:flex-start; gap:8px; color:#536780; font-size:14px; margin-top:14px; }
+.report-unknown>svg { flex:none; margin-top:3px; }
+.direction-options { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:20px; }
+.direction-options>.graphic-node { border-top:2px solid #9fbadd; padding-top:14px; }
+.direction-options h4 { font-size:16px; }
+.suggested-steps { margin-top:12px; }
+.suggested-steps li { padding-bottom:14px; grid-template-columns:30px minmax(0,1fr); }
+.suggested-steps .graphic-node { padding:8px 0; font-size:14px; line-height:1.65; }
+.step-mark b { background:#f2f6fb; border:1px solid #c5d5e9; font-size:13px; }
+.report-source { border-top:1px solid var(--material-rule); padding-top:16px; font-size:13px; }
+.development-report .report-close-row { bottom:-28px; margin-top:8px; background:#fbfdfff5; border-top:1px solid #d8e3f0; box-shadow:none; }
+/* Existing workbench geometry; replace nested surfaces with an editorial rhythm. */
+.workbench-layout { background:#fbfdff; border:1px solid #e0e8f2; border-radius:12px; }
+.conversation-rail { background:#f2f6fb; padding:24px 18px; border-right:1px solid #e0e8f2; }
+.discussion { background:#fbfdff; padding:28px; }
+.discussion .page-heading h1 { font-size:32px; }
+.welcome-discussion { padding:24px 0 8px; border-top:1px solid var(--material-rule); }
+.welcome-discussion h2 { display:flex; align-items:center; gap:12px; line-height:1.6; font-size:23px; }
+.welcome-discussion h2 svg { color:#35639c; flex:none; }
+.discussion-context { padding:18px 0; border:0; border-top:1px solid var(--material-rule); border-radius:0; background:none; }
+.discussion-context>span { display:flex; align-items:center; gap:10px; color:#142d4f; }
+.discussion-context p { padding-left:30px; color:#536780; font-size:15px; }
+.discussion-primary { background:#35639c; border-color:#35639c; border-radius:7px; min-width:200px; }
+.intent-options .button { background:none; border-color:#c7d6ea; border-radius:7px; font-weight:500; }
+.discussion-dock { position:relative; bottom:auto; background:none; max-width:100%; padding-top:20px; }
+.plan-panel { background:none; border:0; border-left:1px solid var(--material-rule); border-radius:0; padding:24px; box-shadow:none; }
+.plan-panel .current-action { background:none; padding:0 0 20px; border:0; border-bottom:1px solid var(--material-rule); border-radius:0; }
+.plan-panel .current-action h3 { font-size:21px; line-height:1.65; }
+.plan-panel .current-action .button.primary { background:#35639c; border-color:#35639c; }
+.path-summary-card { background:#eef4fb; color:#142d4f; border:0; box-shadow:none; border-radius:8px; padding:18px; }
+.plan-heading h2 { display:flex; align-items:center; gap:9px; font-size:19px; }
+.plan-heading h2>svg { color:#35639c; }
+.mobile-recommendation { background:#eef4fb; box-shadow:inset 0 1px 0 #fff; }
+/* Extend the material language without replacing the original canvas or forms. */
+.profile-identity { background:#f8fbff; border:0; border-bottom:1px solid var(--material-rule); border-radius:0; padding:20px 0; }
+.profile-report-entry { background:#edf3fa; border:0; border-radius:8px; box-shadow:inset 0 1px 0 #fff; }
+.profile-section { box-shadow:none; border:0; border-top:1px solid var(--material-rule); border-radius:0; padding:22px 0; }
+.profile-section h2 { display:block; color:#142d4f; font-size:19px; }
+.profile-picture-sections { gap:28px; }
+.profile-aside .current-action { border:0; border-left:1px solid var(--material-rule); border-radius:0; box-shadow:none; background:none; }
+.onboarding-layout .question-panel { background:#fbfdff; }
+.onboarding-layout .context-node { border-color:#dbe5f1; box-shadow:0 6px 20px #19395c0a,inset 0 1px 0 #fff; }
+.quest-card { background:#fbfdff; box-shadow:0 8px 24px #183c6308; border-color:#d8e3f0; border-radius:10px; }
+.quest-detail-surface,.quest-brief { background:#f8fbff; border-color:#d8e3f0; box-shadow:none; }
+@media(max-width:1000px) {
+ .development-report .narrative-section { grid-template-columns:76px minmax(0,1fr); gap:18px; }
+ .report-illustrated .narrative-section>.section-interpretation { grid-column:2; grid-row:1; }
+ .report-past-graphic,.report-present-graphic,.report-future-graphic { grid-column:2; grid-row:2; }
+ .development-report .role-avatar-static { width:190px; min-width:190px; height:190px; }
+ .report-masthead-note { display:none; }
+}
+@media(max-width:760px) {
+ .development-report { width:100vw; height:100dvh; max-height:100dvh; padding:18px; border-radius:0; }
+ .report-masthead { gap:14px; flex-wrap:wrap; padding-bottom:14px; }
+ .report-brand { font-size:23px; }
+ .report-brand .brand-mark { width:30px; height:30px; border-radius:7px; }
+ .development-report .report-masthead h2 { font-size:17px; padding-left:14px; }
+ .development-report .role-story-card { padding:4px 0 14px; gap:16px; align-items:flex-start; }
+ .development-report .role-avatar-static { width:100px; min-width:100px; height:120px; }
+ .development-report .role-story-card h3 { font-size:25px; margin:10px 0; }
+ .development-report .role-story-card .eyebrow { font-size:12px; padding-left:8px; }
+ .development-report .role-story-text { font-size:16px; }
+ .development-report .role-basis,.development-report .role-evidence { font-size:12px; }
+ .development-report .narrative-section { display:block; padding:22px 0; }
+ .narrative-section>h3 { flex-direction:row; align-items:center; gap:16px; font-size:25px; margin-bottom:16px; }
+ .report-section-number { font-size:28px; }
+ .report-illustrated .narrative-section>.section-interpretation { font-size:16px; margin:0 0 18px; }
+ .practice-relations li { grid-template-columns:minmax(0,1fr) 36px minmax(0,1fr); }
+ .relation-arrow .arrow-horizontal { display:block; }
+ .relation-arrow .arrow-vertical { display:none; }
+ .practice-relations .graphic-node { font-size:14px; padding:8px 0; }
+ .direction-options { grid-template-columns:1fr; gap:14px; }
+ .development-report .report-close-row { bottom:-18px; padding-bottom:max(16px,env(safe-area-inset-bottom)); }
+ .workbench-layout { border:0; border-radius:0; padding:16px 18px; }
+ .discussion { padding:0; }
+ .discussion .page-heading h1 { font-size:27px; }
+ .welcome-discussion { padding:18px 0 8px; }
+ .welcome-discussion h2 { font-size:19px; gap:10px; }
+ .discussion-context { padding:14px 0; }
+ .discussion-context p { padding-left:0; }
+ .discussion-dock { padding-top:8px; margin-top:12px; }
+ .plan-panel { border:0; padding:18px 0; }
+ .profile-aside .current-action { border-left:0; border-top:1px solid var(--material-rule); padding:20px 0; }
+}
+@media(max-width:360px) {
+ .development-report .role-avatar-static { width:76px; min-width:76px; height:100px; }
+ .development-report .role-story-card { gap:12px; }
+ .development-report .role-story-card h3 { font-size:23px; }
+ .practice-relations .graphic-node { font-size:13px; }
+}
+.development-report .narrative-section>h3 { grid-row:1; align-self:start; margin:0; }
+@media(min-width:761px) and (max-width:1000px) { .development-report .narrative-section>h3 { flex-direction:column; align-items:flex-start; } .report-section-number { border:0; padding:0; } }
+.discussion-primary.button { background:#35639c; border-color:#35639c; }
+.path-summary-card small { color:#617185; opacity:1; }
+.report-past-graphic .graphic-node { padding:8px 0; }
+.report-past-graphic .experience-timeline li { padding-bottom:12px; }
+.report-future-graphic .direction-options li { display:block; }
+.report-future-graphic .direction-options h4 { margin-bottom:7px; }
+.report-present-graphic .practice-relations .graphic-node { flex-direction:row; align-items:center; text-align:left; gap:8px; }
+.report-present-graphic .practice-relations .graphic-node>svg { width:36px; height:36px; padding:8px; }
+@media(max-width:760px) {
+ .report-present-graphic .practice-relations .graphic-node { flex-direction:column; text-align:center; }
+}
+
+/* Final density pass: preserve content and action paths while matching reference hierarchy. */
+.development-report .role-avatar-static { width:180px; min-width:180px; height:180px; }
+.development-report .role-story-card { margin:8px 0 12px; padding:8px 0 12px; gap:30px; }
+.development-report .role-story-text { font-size:20px; line-height:1.65; }
+.development-report .narrative-section { grid-template-columns:140px minmax(0,1.2fr) minmax(0,1fr); gap:22px; padding:22px 0; }
+.development-report .analysis-lead { font-size:22px; line-height:1.55; margin:0 0 12px; font-weight:600; color:#142d4f; }
+.report-illustrated .section-interpretation p { font-size:17px; line-height:1.75; margin:0; }
+.report-past-graphic .graphic-node { padding:3px 0; }
+.report-past-graphic .graphic-node h4 { font-size:16px; margin:0 0 3px; line-height:1.5; }
+.report-past-graphic .graphic-node p { margin:0; font-size:14px; line-height:1.6; }
+.report-past-graphic .experience-timeline li { padding-bottom:10px; gap:8px; }
+.report-past-graphic .timeline-mark { padding-top:8px; }
+.report-past-graphic .timeline-mark>span { top:23px; bottom:-13px; }
+.report-past-graphic .undated-contributions { margin-left:30px; padding-top:8px; }
+.graphic-legend { margin-bottom:8px; }
+.workbench-shell:not(.workbench-studio) .workbench-layout { grid-template-columns:176px minmax(0,1fr) 300px; gap:24px; padding:24px; }
+.workbench-shell:not(.workbench-studio) .discussion { padding:20px 22px; }
+.workbench-shell:not(.workbench-studio) .discussion-content { flex:0 0 auto; padding:0 0 14px; }
+.workbench-shell:not(.workbench-studio) .discussion .page-heading h1 { font-size:38px; line-height:1.4; }
+.workbench-shell:not(.workbench-studio) .discussion .page-heading p { font-size:17px; line-height:1.7; margin-top:10px; }
+.workbench-shell:not(.workbench-studio) .welcome-discussion h2 { font-size:25px; line-height:1.6; }
+.workbench-shell:not(.workbench-studio) .discussion-dock { margin:0; padding-top:8px; }
+.discussion-context p { font-size:17px; line-height:1.7; }
+@media(min-width:761px) and (max-width:1100px) {
+ .workbench-shell:not(.workbench-studio) .workbench-layout { grid-template-columns:minmax(0,1fr) 280px; }
+ .development-report .narrative-section { grid-template-columns:76px minmax(0,1fr); }
+}
+@media(max-width:760px) {
+ .app-header { height:64px; padding:10px 16px; gap:10px; }
+ .fixture-notice { padding:6px 12px; font-size:12px; line-height:1.45; }
+ .fixture-notice a { display:inline; margin-left:8px; }
+ .workbench-mobile-tools { display:flex; align-items:center; gap:8px; padding:4px 16px; border-bottom:1px solid #d8e3f0; background:#fbfdff; }
+ .workbench-mobile-tools .conversation-switcher { display:flex; flex:1; min-width:0; padding:0; gap:6px; }
+ .workbench-mobile-tools .conversation-switcher label { flex:1; min-width:0; }
+ .workbench-mobile-tools .conversation-switcher select { min-height:44px; padding:6px; font-size:13px; }
+ .workbench-mobile-tools .conversation-switcher .button { min-height:44px; padding:4px 6px; font-size:13px; gap:3px; }
+ .workbench-mobile-tools .conversation-switcher .button svg { width:14px; }
+ .workbench-mobile-tools .mobile-work-tabs { border:0; padding:0; gap:12px; flex:none; }
+ .workbench-mobile-tools .mobile-work-tabs button { min-height:44px; font-size:14px; }
+ .workbench-shell:not(.workbench-studio) .workbench-layout { display:block; padding:16px 18px; }
+ .workbench-shell:not(.workbench-studio) .discussion { padding:0; }
+ .workbench-shell:not(.workbench-studio) .discussion .page-heading h1 { font-size:28px; }
+ .workbench-shell:not(.workbench-studio) .discussion .page-heading p { font-size:16px; margin-top:8px; }
+ .workbench-shell:not(.workbench-studio) .welcome-discussion h2 { font-size:21px; }
+ .welcome-discussion { padding-top:14px; }
+ .development-report .role-avatar-static { width:94px; min-width:94px; height:120px; }
+ .development-report .role-story-card { gap:14px; }
+ .development-report .role-story-text { font-size:17px; line-height:1.65; }
+ .development-report .narrative-section { display:block; padding:18px 0; }
+ .development-report .narrative-section>h3 { margin-bottom:12px; }
+ .development-report .analysis-lead { font-size:20px; margin-bottom:10px; }
+ .report-illustrated .narrative-section>.section-interpretation { margin-bottom:14px; }
+ .report-past-graphic .graphic-node h4 { font-size:16px; }
+}
+@media(max-width:360px) {
+ .workbench-mobile-tools { gap:6px; padding-inline:12px; }
+ .workbench-mobile-tools .mobile-work-tabs { gap:8px; }
+ .development-report .role-avatar-static { width:76px; min-width:76px; height:104px; }
+}
+.development-report .report-reading-note { margin-bottom:10px; }
+.development-report .report-present-graphic .practice-relations { gap:8px; }
+.development-report .report-present-graphic .practice-relations .graphic-node { padding:0; line-height:1.55; }
+.development-report .report-present-graphic .relation-arrow { padding-top:4px; }
+.development-report .report-present-graphic .report-conditions { margin-top:10px; padding-top:8px; }
+.development-report .report-present-graphic .report-unknown { margin-top:8px!important; }
+
+.timeline-horizontal { display:none; }
+.report-past-graphic .compact-timeline { display:flex; gap:24px; }
+.report-past-graphic .compact-timeline li { display:block; flex:1; min-width:0; padding-bottom:8px; }
+.report-past-graphic .compact-timeline .timeline-mark { align-items:flex-start; height:24px; padding-top:2px; }
+.report-past-graphic .compact-timeline .timeline-mark>span { left:20px; right:-16px; top:-4px; bottom:auto; width:calc(100% - 8px); height:24px; transform:none; place-items:stretch; }
+.report-past-graphic .compact-timeline .timeline-horizontal { display:block; width:100%; height:24px; }
+.report-past-graphic .compact-timeline .timeline-vertical { display:none; }
+.report-past-graphic:has(.compact-timeline) .undated-contributions { margin-left:0; }
+
+/* Enterprise narrative has two columns, rather than the illustrated profile's three. */
+.enterprise-development-report .narrative-section { grid-template-columns:minmax(220px,.8fr) minmax(0,2fr);gap:28px; }
+.enterprise-development-report .narrative-section>h3 { font-size:23px;line-height:1.5;align-items:flex-start; }
+.enterprise-development-report .report-section-number { flex:0 0 auto;white-space:nowrap;font-size:27px;line-height:1.5; }
+.enterprise-development-report .narrative-section>h3>span:last-child { min-width:0;overflow-wrap:normal;word-break:normal; }
+.enterprise-development-report .narrative-section>:is(p,ul) { margin:0;padding-top:3px;min-width:0;font-size:17px;line-height:1.8; }
+.enterprise-development-report .narrative-section>ul { padding-left:20px; }
+@media(max-width:760px) {
+ .enterprise-development-report .narrative-section>h3 { gap:14px;font-size:21px; }
+ .enterprise-development-report .report-section-number { font-size:24px; }
+}

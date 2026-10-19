@@ -1,0 +1,7 @@
+@media (max-width: 767px) {
+  /* Leave room for John's fixed canvas tray when focus/scroll brings a form
+     control into view. Existing bottom padding supplies the scroll space. */
+  .product-shell[data-role="john"][data-surface="onboarding"] .question-content :is(button, input, textarea, select) {
+    scroll-margin-block-end: calc(104px + env(safe-area-inset-bottom, 0px));
+  }
+}

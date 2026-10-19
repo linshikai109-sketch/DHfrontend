@@ -1,0 +1,94 @@
+/* Presentation shells only. Business routes, drafts and adoption stay shared. */
+.product-shell[data-role] { --shell-nav-width:184px; }
+.product-shell[data-role] .shell-object { display:none; }
+.product-shell[data-role] .workbench-mobile-tools > summary { cursor:pointer; color:#405a78; min-height:44px; padding:12px 4px; font-size:13px; }
+.product-shell[data-role] .mobile-context-actions { display:flex; gap:8px; }
+.product-shell[data-role] .canvas-toggle { align-self:flex-end; min-height:44px; }
+.product-shell[data-role="emma"] .onboarding-layout.has-closed-sheet { grid-template-columns:minmax(0,1fr); }
+.product-shell[data-role="emma"] .onboarding-layout.has-closed-sheet .onboarding-visual { display:none; }
+.product-shell[data-role="emma"] .onboarding-layout.has-closed-sheet .question-content { max-width:560px; }
+@media (min-width:768px) {
+  .product-shell[data-role] .workbench-mobile-tools { display:none; }
+  .product-shell[data-role] .workbench-layout.without-plan-panel { gap:0; padding:0; grid-template-columns:184px minmax(0,1fr); }
+  .product-shell[data-role] .workbench-layout.rail-collapsed { grid-template-columns:60px minmax(0,1fr); }
+  .product-shell[data-role] .conversation-rail { display:flex; padding:22px 12px; background:#f9fbfd; border-right:1px solid #e8edf4; }
+  .product-shell[data-role] .rail-heading { display:flex; align-items:center; justify-content:space-between; }
+  .product-shell[data-role] .rail-heading .eyebrow { margin:0; padding:0 6px; }
+  .product-shell[data-role] .rail-collapsed .rail-heading .eyebrow,
+  .product-shell[data-role] .rail-collapsed .conversation-rail > button { display:none; }
+  .product-shell[data-role] .rail-collapsed .conversation-rail { padding:22px 6px; }
+  .product-shell[data-role="emma"] .discussion { padding:32px clamp(24px,4vw,64px); min-width:0; }
+  .product-shell[data-role="emma"] .discussion-content,
+  .product-shell[data-role="emma"] .discussion-dock { width:100%; max-width:820px; margin-left:auto; margin-right:auto; }
+  .product-shell[data-role="emma"] .onboarding-layout.has-closed-sheet .question-panel { padding:32px; }
+}
+@media (min-width:1024px) {
+  .product-shell[data-role="john"] { max-width:none; padding-left:var(--shell-nav-width); }
+  .product-shell[data-role="john"] .app-header { height:80px; padding:16px 32px; }
+  .product-shell[data-role="john"] .brand { position:fixed; left:24px; top:23px; z-index:12; }
+  .product-shell[data-role="john"] .main-nav { position:fixed; inset:0 auto 0 0; width:var(--shell-nav-width); padding:104px 16px 24px; background:#f6f8fc; border-right:1px solid #e3eaf3; flex-direction:column; align-items:stretch; gap:8px; overflow-y:auto; z-index:11; }
+  .product-shell[data-role="john"] .main-nav a { padding:0 16px; border-radius:10px; min-height:48px; white-space:nowrap; }
+  .product-shell[data-role="john"] .main-nav a.active { background:#e4ebf5; color:#173654; font-weight:600; border:0; }
+  .product-shell[data-role="john"] .shell-object { display:block; max-width:min(640px,65vw); overflow:hidden; text-overflow:ellipsis; white-space:nowrap; color:#243f60; font-size:15px; font-weight:600; }
+  .product-shell[data-role="john"] .workbench-layout { min-height:calc(100dvh - 145px); }
+}
+@media (min-width:768px) and (max-width:1023px) {
+  .product-shell[data-role] .workbench-layout.without-plan-panel { grid-template-columns:60px minmax(0,1fr); }
+  .product-shell[data-role] .workbench-layout:not(.rail-collapsed) { grid-template-columns:172px minmax(0,1fr); }
+}
+@media (max-width:767px) {
+  .product-shell[data-role="emma"] .app-header { height:68px; padding:12px 20px; gap:12px; }
+  .product-shell[data-role="emma"] .main-nav { display:none; }
+  .product-shell[data-role="emma"] .header-right { margin-left:auto; }
+  .product-shell[data-role="emma"] .avatar { min-width:40px; min-height:40px; }
+  .product-shell[data-role="emma"] .workbench-shell[data-view="discussion"] > .wb-view-tabs { display:none; }
+  .product-shell[data-role] .workbench-mobile-tools { display:block; padding:0 20px; background:#fff; }
+  .product-shell[data-role] .workbench-mobile-tools .conversation-switcher { padding:4px 0 12px; }
+  .product-shell[data-role] .workbench-layout.without-plan-panel { display:block; padding:0; min-height:0; }
+  .product-shell[data-role] .conversation-rail { display:none; }
+  .product-shell[data-role="emma"] .discussion { display:flex; flex-direction:column; height:auto; max-height:none; overflow:visible; padding:8px 20px max(24px,env(safe-area-inset-bottom)); }
+  .product-shell[data-role="emma"] .discussion-content { display:contents; }
+  .product-shell[data-role="emma"] .discussion-content > * { order:2; }
+  .product-shell[data-role="emma"] .discussion-content > .page-heading { order:0; margin:12px 0 4px; text-align:center; }
+  .product-shell[data-role="emma"] .page-heading h1 { font-size:25px; line-height:1.4; }
+  .product-shell[data-role="emma"] .discussion .page-heading .muted,
+  .product-shell[data-role="emma"] .discussion .welcome-discussion { display:none; }
+  .product-shell[data-role="emma"] .discussion-dock { order:1; position:relative; bottom:auto; padding:0 0 20px; margin:0; max-width:none; background:#fff; }
+  .product-shell[data-role="emma"] .discussion-context { display:none; }
+  .product-shell[data-role="emma"] .discussion-dock .plan-proposal { margin:12px 0; }
+  .product-shell[data-role="emma"] .onboarding-layout { display:block; padding:0; min-height:calc(100dvh - 68px); }
+  .product-shell[data-role="emma"] .onboarding-layout .question-panel { padding:8px 20px max(24px,env(safe-area-inset-bottom)); }
+  .product-shell[data-role="emma"] .question-content { gap:16px; max-width:560px; padding:0; }
+  .product-shell[data-role="emma"] .question-content h1 { text-align:center; font-size:25px; margin:6px 0; }
+  .product-shell[data-role="emma"] .canvas-toggle { display:none; }
+  .product-shell[data-role="emma"] .question-progress { margin:0; font-size:12px; gap:12px; }
+  .product-shell[data-role="emma"] .question-progress .button { font-size:12px; padding:8px 0; }
+  .product-shell[data-role="emma"] .question-actions { display:flex; flex-wrap:wrap; align-items:center; gap:10px; }
+  .product-shell[data-role="emma"] .onboarding-layout .canvas-tray { display:none; }
+  .product-shell[data-role="emma"] .onboarding-layout.has-half-sheet .question-panel { padding-bottom:24px; }
+  .product-shell[data-role="emma"] .onboarding-layout .onboarding-visual.preview-sheet-half { position:relative; }
+  .product-shell[data-role="john"] .discussion { height:auto; max-height:none; overflow:visible; }
+  .product-shell[data-role="john"] .discussion-dock { position:relative; bottom:auto; padding-bottom:max(16px,env(safe-area-inset-bottom)); }
+  .product-shell[data-role="john"] .main-nav { overflow-x:auto; gap:18px; }
+  .product-shell[data-role="john"] .main-nav a { white-space:nowrap; flex-shrink:0; }
+}
+@media (max-width:360px) {
+  .product-shell[data-role="emma"] .app-header,
+  .product-shell[data-role="emma"] .discussion,
+  .product-shell[data-role="emma"] .onboarding-layout .question-panel { padding-left:14px; padding-right:14px; }
+}
+
+/* Keep the response above the fold once a result is available. */
+@media (max-width:767px) {
+ .product-shell[data-role="emma"] .wb-voice .voice-visual-trigger,
+ .product-shell[data-role="emma"] .wb-voice .voice-visual { transition:width .32s ease,height .32s ease; }
+ .product-shell[data-role="emma"] .wb-voice .voice-corona { transition:transform .32s ease; transform-origin:center; }
+ .product-shell[data-role="emma"] .wb-voice[data-compact="true"] { padding:4px 0; }
+ .product-shell[data-role="emma"] .wb-voice[data-compact="true"] .wb-voice-row { grid-template-columns:64px minmax(0,1fr) 44px; gap:10px; align-items:center; }
+ .product-shell[data-role="emma"] .wb-voice[data-compact="true"] .voice-visual-trigger { width:64px!important;height:64px!important;grid-column:auto; }
+ .product-shell[data-role="emma"] .wb-voice[data-compact="true"] .voice-visual { width:64px;height:64px;position:relative; }
+ .product-shell[data-role="emma"] .wb-voice[data-compact="true"] .voice-corona { position:absolute;left:50%;top:50%;transform:translate(-50%,-50%) scale(.256); }
+ .product-shell[data-role="emma"] .wb-voice[data-compact="true"] .voice-css-orb { width:64px;height:64px; }
+ .product-shell[data-role="emma"] .wb-voice[data-compact="true"] .wb-voice-row>span { justify-self:start; }
+ .product-shell[data-role="emma"] .wb-voice[data-compact="true"][data-text-open="true"] .wb-voice-row { grid-template-columns:minmax(0,1fr) 44px; }
+}

@@ -1,0 +1,25 @@
+/* Only shared Dialog uses this structure. Native reports/plan review retain
+   their own layouts. The header is outside the scrollport, so content cannot
+   pass through either its title or the dialog's padded upper edge. */
+dialog.dialog.shared-dialog {
+  overflow: hidden;
+}
+dialog.dialog.shared-dialog[open] {
+  display: flex;
+  flex-direction: column;
+}
+dialog.dialog.shared-dialog > .dialog-head {
+  position: relative;
+  top: auto;
+  flex: 0 0 auto;
+  background: #fff;
+  backdrop-filter: none;
+  z-index: 1;
+}
+dialog.dialog.shared-dialog > .dialog-body {
+  min-width: 0;
+  min-height: 0;
+  flex: 1 1 auto;
+  overflow: auto;
+  overscroll-behavior: contain;
+}

@@ -1,0 +1,12 @@
+.plan-review-source-status {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  margin: 0 0 12px;
+  color: #334b68;
+  font-size: 14px;
+  line-height: 1.5;
+}
+.plan-review-source-status svg { flex: 0 0 auto; margin-top: 2px; }
+.artifact-source-state .badge { font-size: 13px; color: #334b68; }
+.artifact-source-state .button { min-height: 44px; font-size: 14px; }

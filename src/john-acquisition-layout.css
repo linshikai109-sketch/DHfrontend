@@ -1,0 +1,63 @@
+/* Only the desktop acquisition work area changes; navigation and mobile keep their contracts. */
+@media (min-width: 1024px) {
+  .product-shell[data-role="john"][data-surface="onboarding"] .onboarding-layout[data-john-canvas-state] {
+    grid-template-columns: var(--john-acquisition-columns);
+  }
+
+  .product-shell[data-role="john"][data-surface="onboarding"] .onboarding-layout[data-john-canvas-state] .question-panel {
+    min-width: 0;
+    padding: 38px clamp(24px, 2.2vw, 32px);
+  }
+
+  .product-shell[data-role="john"][data-surface="onboarding"] .onboarding-layout[data-john-canvas-state] .question-content {
+    width: 100%;
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 8px 0;
+  }
+
+  .product-shell[data-role="john"][data-surface="onboarding"] .onboarding-layout[data-john-canvas-state] .question-content h1 {
+    max-width: 100%;
+  }
+
+  .product-shell[data-role="john"][data-surface="onboarding"] .onboarding-layout[data-john-canvas-state="empty"] .context-panel.sheet-half {
+    height: clamp(320px, 46dvh, 440px);
+    min-width: 0;
+    min-height: 0;
+    margin: 24px;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+  }
+
+  .product-shell[data-role="john"][data-surface="onboarding"] .onboarding-layout[data-john-canvas-state="empty"] .onboarding-visual {
+    background: #fbfcff;
+  }
+
+  .product-shell[data-role="john"][data-surface="onboarding"] .onboarding-layout[data-john-canvas-state="empty"] .canvas-footer {
+    flex: 0 0 64px;
+    height: 64px;
+    box-sizing: border-box;
+  }
+
+  .product-shell[data-role="john"][data-surface="onboarding"] .onboarding-layout[data-john-canvas-state="empty"] .canvas-viewport {
+    background-image: none;
+  }
+
+  /* No nodes exist here. Fit the empty world to its viewport so the message is
+     centered in the visible preview instead of an offscreen 820px board. */
+  .product-shell[data-role="john"][data-surface="onboarding"] .onboarding-layout[data-john-canvas-state="empty"] .canvas-space,
+  .product-shell[data-role="john"][data-surface="onboarding"] .onboarding-layout[data-john-canvas-state="empty"] .canvas-world {
+    width: 100% !important;
+    height: 100% !important;
+    transform: none !important;
+  }
+
+  .product-shell[data-role="john"][data-surface="onboarding"] .onboarding-layout[data-john-canvas-state="empty"] .canvas-empty {
+    padding: 24px;
+    text-align: center;
+  }
+
+  .product-shell[data-role="john"][data-surface="onboarding"] .onboarding-layout[data-john-canvas-state="empty"] .canvas-world > svg {
+    display: none;
+  }
+}

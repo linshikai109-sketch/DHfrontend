@@ -1,0 +1,9 @@
+.simulated-voice-composer{position:relative;isolation:isolate;overflow:hidden;border-radius:20px}
+.simulated-voice-composer .simulated-voice-beam{z-index:0}
+.simulated-voice-beam-stage{width:100%;height:100%}
+.simulated-voice-composer>.voice-composer,.simulated-voice-composer>.interim,.simulated-voice-composer>.muted,.simulated-voice-composer>.text-composer{position:relative;z-index:2}
+.simulated-voice-composer[data-voice-state="listening"]{padding-bottom:36px}
+.simulated-voice-composer .interim{color:#53647b;text-shadow:0 1px 4px #fff;margin-bottom:10px}
+.simulated-voice-static-glow{position:absolute;z-index:0;inset:auto 0 0;height:26px;background:linear-gradient(90deg,#c5b1ff,#ffc8ec,#b7e9fa,#b2eacb,#e9c4ff);opacity:.85;pointer-events:none}
+.simulated-voice-composer .voice-glow-fallback{bottom:0}
+.simulated-voice-composer[data-reduced-motion="true"] .voice-core-light,.simulated-voice-composer[data-reduced-motion="true"] .voice-core::before{animation:none!important}

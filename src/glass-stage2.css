@@ -1,0 +1,61 @@
+/* B thin-glass edge, shared across roles. No optics, animation or orb rules.
+ * Content is opaque; an inset rim gives the shell light without text bleed.
+ * No filter/transform ancestors: native dialogs and fixed voice effects keep
+ * their original containing blocks, geometry and top-layer behavior. */
+:root {
+  --dhai-glass-b-rim: inset 0 0 0 1px rgb(122 145 177 / 32%), inset 0 2px 0 rgb(255 255 255 / 98%), 0 0 0 1px rgb(255 255 255 / 80%);
+  --dhai-glass-b-float: 0 8px 26px rgb(23 49 80 / 12%);
+}
+.product-shell :is(.shared-dialog, .voice-composer, .emma-inline-voice, .wb-text, .wb-caption),
+body > .mobile-plan-review {
+  background-color: #fff;
+  box-shadow: var(--dhai-glass-b-rim), var(--dhai-glass-b-float);
+}
+/* Shared Dialog title is outside its scrollport (E2). Keep it fully opaque. */
+.product-shell .shared-dialog > :is(.dialog-head, .dialog-body),
+body > .mobile-plan-review > :is(header, .mobile-review-body, footer),
+.product-shell :is(.wb-text textarea, .text-composer textarea, .wb-caption-text, .emma-inline-transcript, .emma-inline-editor) {
+  background-color: #fff;
+}
+@media (min-width: 768px) {
+  .product-shell .wb-voice {
+    background-color: #fff;
+    box-shadow: var(--dhai-glass-b-rim), var(--dhai-glass-b-float);
+  }
+  .product-shell .wb-voice :is(.wb-text, .wb-caption) { box-shadow: none; }
+}
+/* Visible for native WK keyboard and programmatic modal focus alike.
+ * Inset outline avoids scrollport clipping; no focus selectors touch the orb. */
+.product-shell :is(.shared-dialog, .avatar-menu, .john-navigation, .wb-text, .text-composer, .emma-inline-editor) :is(button, a, input, textarea, select, summary):focus,
+body > .mobile-plan-review :is(button, a, input, textarea, select, summary):focus {
+  outline: 2px solid #214c76;
+  outline-offset: -2px;
+}
+:root[data-glass="off"] .product-shell :is(.shared-dialog, .voice-composer, .emma-inline-voice, .wb-text, .wb-caption, .wb-voice),
+:root[data-glass="off"] body > .mobile-plan-review {
+  background-color: #fff;
+  box-shadow: none;
+}
+@media (prefers-reduced-transparency: reduce) {
+  .product-shell :is(.shared-dialog, .voice-composer, .emma-inline-voice, .wb-text, .wb-caption, .wb-voice),
+  body > .mobile-plan-review {
+    background-color: #fff;
+    box-shadow: none;
+  }
+}
+@media (forced-colors: active) {
+  body > .mobile-plan-review,
+  :root[data-glass="off"] body > .mobile-plan-review,
+  .product-shell :is(.shared-dialog, .voice-composer, .emma-inline-voice, .wb-text, .wb-caption, .wb-voice),
+  :root[data-glass="off"] .product-shell :is(.shared-dialog, .voice-composer, .emma-inline-voice, .wb-text, .wb-caption, .wb-voice),
+  .product-shell .shared-dialog > :is(.dialog-head, .dialog-body),
+  body > .mobile-plan-review > :is(header, .mobile-review-body, footer),
+  .product-shell :is(.wb-text textarea, .text-composer textarea, .wb-caption-text, .emma-inline-transcript, .emma-inline-editor) {
+    background-color: Canvas;
+    box-shadow: none;
+  }
+  .product-shell :is(.shared-dialog, .avatar-menu, .john-navigation, .wb-text, .text-composer, .emma-inline-editor) :is(button, a, input, textarea, select, summary):focus,
+body > .mobile-plan-review :is(button, a, input, textarea, select, summary):focus {
+    outline-color: Highlight;
+  }
+}

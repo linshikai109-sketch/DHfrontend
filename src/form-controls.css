@@ -1,0 +1,50 @@
+/* Keep the browser's native select, arrow, keyboard and date-picker behavior.
+   Only normalize the visual and touch dimensions; layout widths stay local. */
+#root select,
+#root :is(.dialog, .bp-edit-form, .path-edit-form, .quest-field, .external-materials, .enterprise-membership, .role-expression-editor)
+  input:is(:not([type]), [type="text"], [type="search"], [type="url"], [type="email"], [type="tel"], [type="password"], [type="number"], [type="date"], [type="datetime-local"], [type="time"]) {
+  box-sizing: border-box;
+  min-height: 48px;
+  padding: 10px 12px;
+  font-family: inherit;
+  font-size: 16px;
+  line-height: 1.5;
+}
+/* WebKit's native menulist can ignore min-height; explicit height is honored
+   without changing appearance or replacing its native popup. */
+#root select { height: 48px; }
+
+/* Normalize the existing product forms while retaining native select options,
+   keyboard selection and accessibility. No replacement combobox or JS state. */
+.product-shell :is(.shared-dialog, .onboarding-layout, .external-materials, .path-edit-form, .bp-edit-form, .context-canvas) select {
+  -webkit-appearance: none;
+  appearance: none;
+  color-scheme: light;
+  color: #193656;
+  background-color: #fff;
+  background-image: linear-gradient(45deg, transparent 50%, #426487 50%), linear-gradient(135deg, #426487 50%, transparent 50%);
+  background-position: calc(100% - 19px) 21px, calc(100% - 14px) 21px;
+  background-size: 5px 5px, 5px 5px;
+  background-repeat: no-repeat;
+  border: 1px solid #cbd8e8;
+  border-radius: 10px;
+  padding-right: 40px;
+  max-width: 100%;
+  text-overflow: ellipsis;
+}
+.product-shell :is(.shared-dialog, .onboarding-layout, .external-materials, .path-edit-form, .bp-edit-form, .context-canvas) select:disabled {
+  color: #60748e;
+  background-color: #f2f6fb;
+  border-color: #dce4ee;
+  opacity: 1;
+}
+@media (forced-colors: active) {
+  .product-shell :is(.shared-dialog, .onboarding-layout, .external-materials, .path-edit-form, .bp-edit-form, .context-canvas) select {
+    -webkit-appearance: auto;
+    appearance: auto;
+    color-scheme: normal;
+    color: CanvasText;
+    background: Canvas;
+    border-color: CanvasText;
+  }
+}

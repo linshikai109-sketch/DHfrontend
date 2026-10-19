@@ -1,0 +1,17 @@
+/* Only mobile adds an explicit first action and a persistent typing alternative. */
+.voice-orb-hint,.voice-mobile-status,.wb-voice .voice-mobile-text-alternative{display:none}
+@media (max-width:767px), (max-width:1024px) and (max-height:480px) and (pointer:coarse) {
+ .emma-mobile-orb-anchor { margin-bottom:34px; }
+ .emma-mobile-orb-anchor .voice-visual-trigger { position:relative; }
+ .emma-mobile-onboarding .question-content { min-height:calc(var(--emma-mobile-available-height,100dvh) - var(--emma-top-orb-size) - 92px - env(safe-area-inset-top,0px)); }
+ .emma-mobile-orb-anchor .voice-orb-hint { display:block;position:absolute;top:100%;left:50%;transform:translateX(-50%);width:max-content;max-width:calc(100vw - 36px);margin-top:5px;color:#29445e;font-size:13px;font-weight:400;line-height:1.6;white-space:normal;text-align:center;pointer-events:none; }
+ .emma-mobile-onboarding[data-intro-playing=true]:not([data-intro-phase=question-ready]) .voice-orb-hint { visibility:hidden; }
+ .emma-mobile-onboarding .onboarding-voice-controls>.btn { min-height:44px; }
+ .emma-mobile-onboarding .onboarding-voice-controls>span { flex:1; }
+ .product-shell[data-role=emma] .wb-voice .voice-desktop-status { display:none; }
+ .product-shell[data-role=emma] .wb-voice[data-compact=true][data-text-open=true] .wb-voice-row>span { grid-column:1 / -1;justify-self:start;width:100%; }
+ .product-shell[data-role=emma] .wb-voice .voice-mobile-status { display:inline;color:#29445e; }
+ .product-shell[data-role=emma] .wb-voice .voice-mobile-text-alternative { display:inline-flex;min-height:44px;align-self:center;order:3;position:relative;z-index:2;margin-top:8px;font:inherit;font-size:13px;color:#29445e; }
+ .product-shell[data-role=emma] .wb-voice:is([data-state=idle],[data-state=responding]) .wb-voice-row>button:last-child { visibility:hidden; }
+ .emma-mobile-orb-anchor .voice-visual-trigger:focus-visible,.product-shell[data-role=emma] .voice-mobile-text-alternative:focus-visible { outline:3px solid #426487;outline-offset:3px; }
+}

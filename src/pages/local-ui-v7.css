@@ -1,0 +1,142 @@
+/* Local review candidate: presentation only; data and operation contracts stay in their original modules. */
+:root { font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, 'PingFang SC', sans-serif; font-size:16px; }
+button,input,textarea,select { font-family:inherit; }
+.profile-page,.quest-page,.discussion,.question-panel { overflow-wrap:anywhere; }
+.page-heading h1,.profile-hero h1,.quest-page h1 { font-size:clamp(26px,2.3vw,32px); line-height:1.4; }
+.workbench-layout { grid-template-columns:210px minmax(0,1fr) 300px; }
+.discussion .page-heading { padding-bottom:20px; }
+.welcome-discussion { padding:22px 0; }
+.welcome-discussion h2 { font-size:21px; margin:0 0 22px; }
+.discussion-primary { min-height:48px; padding:12px 20px; box-shadow:0 6px 18px #142d4f18; }
+.start-secondary-label { font-size:14px; color:var(--muted); margin:24px 0 10px; }
+.intent-options { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; }
+.intent-options .button { justify-content:flex-start; min-height:44px; padding:10px 14px; font-size:14px; }
+.workbench-studio .welcome-emblem { width:100px; height:75px; margin:0 0 20px; transform:scale(.75); transform-origin:left center; }
+.workbench-studio .intent-options .button { padding:12px 10px; }
+.discussion-context { padding:12px 16px; border:1px solid var(--line); border-radius:12px; background:#f7f9fc; margin-bottom:12px; }
+.discussion-context>span,.mobile-recommendation>span { color:var(--blue); font-size:14px; font-weight:600; }
+.discussion-context p { margin:5px 0; font-size:14px; line-height:1.65; }
+.discussion-context small { color:var(--muted); }
+.plan-panel .current-action { padding:18px; box-shadow:none; }
+.plan-panel .current-action h3 { font-size:18px; }
+.plan-panel .current-action .row { gap:6px; }
+.plan-panel .current-action .button { font-size:14px; min-height:40px; }
+.mobile-recommendation { display:none; }
+.onboarding-layout { grid-template-columns:minmax(360px,440px) minmax(0,1fr); }
+.onboarding-layout .question-panel { padding:24px 28px; }
+.onboarding-layout .question-content { margin:0 auto; padding:8px 0; gap:20px; }
+.onboarding-layout .question-progress { margin-bottom:8px; font-size:14px; }
+.onboarding-layout .question-content h1 { font-size:28px; line-height:1.5; }
+.onboarding-layout .question-actions { margin-top:12px; }
+.onboarding-layout .canvas-heading { padding:16px 20px; }
+.profile-hero { padding:20px 0 22px; }
+.profile-hero p { font-size:16px; }
+.profile-identity { margin:18px 0; padding:18px; }
+.profile-report-entry { display:flex; align-items:center; justify-content:space-between; gap:16px; padding:18px 20px; background:linear-gradient(110deg,#edf2f8,#fff); border:1px solid var(--line); border-radius:14px; }
+.profile-report-entry p { color:var(--muted); font-size:14px; margin:6px 0 0; }
+.profile-report-entry .button { flex-shrink:0; }
+.profile-page-grid { gap:24px; padding-top:24px; grid-template-columns:minmax(0,1fr) 280px; }
+.profile-section { padding:20px; }
+.profile-entry-main { display:block; }
+.profile-entry-main>.row { margin-top:10px; justify-content:flex-end; gap:6px; }
+.profile-entry-main>.row .button { min-height:40px; font-size:14px; }
+.profile-entry details,.profile-privacy,.role-basis,.role-evidence,.report-source { font-size:14px; color:#536780; }
+.development-report { width:min(860px,calc(100vw - 40px)); padding:28px; }
+.development-report h2 { font-size:28px; margin:6px 0 16px; }
+.development-report .role-story-card { margin:14px 0; padding:16px; gap:16px; background:linear-gradient(120deg,#edf2f8,#f7f9fc); border-color:#d4dfed; }
+.development-report .role-avatar-static { width:76px; min-width:76px; background:#e3ebf6; color:#35639c; }
+.development-report .role-story-card h3 { font-size:22px; margin:4px 0 8px; }
+.development-report .role-story-text { line-height:1.75; }
+.report-reading-note { color:#425d7e; font-size:14px; }
+.report-section { background:#f7f9fc; padding:18px; }
+.report-section-number,.timeline-mark,.relation-arrow { color:#35639c; }
+.graphic-node.approach-node,.report-conditions { background:#edf2f8; border-color:#ccd9ea; color:#28496f; }
+.report-close-row { bottom:-28px; z-index:2; border-top:1px solid var(--line); background:#fffffff5; backdrop-filter:blur(8px); }
+.dialog-head { position:sticky; top:-24px; z-index:5; background:#fffffff5; backdrop-filter:blur(10px); padding:12px 0; border-bottom:1px solid var(--line); }
+.dialog-head h2 { min-width:0; font-size:22px; }
+.dialog-head .button { flex:none; min-width:44px; min-height:44px; }
+.role-share fieldset { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:8px; }
+.role-share label { padding:10px 12px; min-height:48px; border:1px solid var(--line); border-radius:9px; cursor:pointer; }
+.role-share label:has(input:checked) { background:#edf2f8; border-color:#8fa9c9; }
+.role-share input[type=checkbox] { width:18px; height:18px; flex:none; accent-color:var(--blue); }
+.quest-page-heading { margin-bottom:24px; }
+.quest-hub-toolbar { padding:12px 0 18px; gap:16px; }
+.quest-filters select { min-height:44px; font-size:14px; }
+.quest-card { border:1px solid #dce5f0; background:linear-gradient(145deg,#fff,#f7f9fc); box-shadow:0 8px 24px #142d4f08; padding:22px; }
+.quest-card h2 { font-size:20px; line-height:1.6; }
+.quest-card-summary { font-size:15px; line-height:1.7; }
+.quest-card footer { gap:12px; flex-wrap:wrap; }
+.quest-card footer .button { min-height:44px; }
+@media(max-width:1199px) {
+ .workbench-layout { grid-template-columns:minmax(0,1fr) 280px; }
+ .conversation-rail { display:none; }
+ .profile-page-grid { grid-template-columns:minmax(0,1fr); }
+ .profile-aside { position:static; }
+ .onboarding-layout { grid-template-columns:minmax(320px,.9fr) minmax(0,1fr); }
+ .onboarding-layout .question-panel { padding:22px; }
+}
+@media(max-width:760px) {
+ .workbench-layout { display:block; }
+ .discussion { padding:22px 18px 0; }
+ .discussion-content { min-height:0; }
+ .intent-options { gap:8px; }
+ .intent-options .button { font-size:14px; padding:10px; }
+ .discussion-dock { margin-top:20px; padding-bottom:max(16px,env(safe-area-inset-bottom)); }
+ .mobile-recommendation { display:block; margin-bottom:14px; padding:12px 14px; border-left:3px solid #35639c; background:#edf2f8; border-radius:8px; }
+ .mobile-recommendation p { margin:6px 0; font-size:15px; }
+ .mobile-recommendation button { display:flex; align-items:center; gap:6px; background:none; border:0; color:var(--navy); padding:8px 0; min-height:44px; cursor:pointer; }
+ .onboarding-layout { display:block; }
+ .onboarding-layout .question-panel { padding:20px 18px 100px; }
+ .onboarding-layout .question-content h1 { font-size:25px; }
+ .onboarding-layout.has-half-sheet .question-panel { padding-bottom:24px; }
+ .onboarding-layout .context-panel.sheet-half { position:relative; inset:auto; height:46dvh; min-height:300px; margin:0; border-radius:18px 18px 0 0; }
+ .onboarding-layout .onboarding-visual.preview-sheet-half { position:relative; margin-bottom:16px; }
+ .profile-page { padding:16px 16px 60px; }
+ .profile-hero { padding:16px 0 18px; }
+ .profile-report-entry { flex-direction:column; align-items:stretch; padding:16px; }
+ .profile-report-entry .button { justify-content:space-between; }
+ .profile-page-grid { display:block; padding-top:18px; }
+ .development-report { width:100vw; height:100dvh; max-height:100dvh; padding:18px; border-radius:0; }
+ .development-report .role-story-card { flex-direction:row; align-items:flex-start; gap:12px; padding:14px; }
+ .development-report .role-avatar-static { width:48px; min-width:48px; height:56px; }
+ .development-report .role-avatar-static svg { width:36px; height:36px; }
+ .development-report .role-story-card h3 { font-size:20px; }
+ .report-section { padding:14px; }
+ .report-close-row { bottom:-18px; padding-bottom:max(16px,env(safe-area-inset-bottom)); }
+ .dialog-head { top:-20px; }
+ .role-share fieldset { grid-template-columns:1fr; }
+ .quest-page { padding-inline:18px; }
+ .quest-hub-toolbar { flex-wrap:wrap; }
+ .quest-filters { width:100%; }
+ .quest-filters select { min-width:0; flex:1; }
+ .quest-card { padding:18px; }
+}
+@media(prefers-reduced-motion:reduce) { .discussion-primary { transition:none; } }
+.report-section-number { background:#35639c; color:#fff; }
+.timeline-mark i { background:#35639c; }
+.timeline-mark>span::before { border-left-color:#35639c; }
+.graphic-legend { color:#35639c; }
+.report-illustrated .approach-node { background:#edf2f8; }
+.profile-entry-actions>.row { justify-content:flex-end; gap:6px; margin-top:8px; }
+.profile-entry-actions .button { min-height:40px; font-size:14px; }
+@media(max-width:760px) {
+ .workbench-layout { padding:16px 18px; }
+ .discussion { padding:0; }
+ .discussion .page-heading { margin-bottom:0; padding-bottom:12px; }
+ .welcome-discussion { padding:12px 0; }
+ .welcome-discussion h2 { margin-bottom:14px; font-size:18px; }
+ .start-secondary-label { margin:16px 0 8px; }
+ .intent-options { margin-top:8px; }
+ .discussion-content { padding-bottom:4px; }
+ .discussion-dock { position:relative; bottom:auto; margin-top:10px; }
+}
+@media(max-width:760px) {
+ .onboarding-visual.preview-sheet-half .path-preview-switch { position:relative; inset:auto; width:fit-content; margin:0 18px 10px; z-index:1; }
+ .onboarding-visual.preview-sheet-half .canvas-heading>h2 { visibility:visible; }
+}
+.intent-options { grid-template-columns:repeat(3,minmax(0,1fr)); }
+@media(max-width:760px) { .intent-options { grid-template-columns:1fr; } }
+@media(max-width:760px) { .intent-options { grid-template-columns:repeat(2,minmax(0,1fr)); } .intent-options>.button:last-child { grid-column:1/-1; } }
+.step-mark { color:#35639c; }
+.step-mark b { border-color:#35639c; }
+.role-avatar-button:focus-visible { outline-color:#35639c; }

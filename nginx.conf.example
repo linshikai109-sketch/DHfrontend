@@ -1,0 +1,10 @@
+# Reference only; no deployment performed. Serve dist at the existing base path.
+server {
+  listen 8080;
+  server_name localhost;
+  root /srv/frontend;
+  location /mvp-ui/v2/ {
+    try_files $uri $uri/ /mvp-ui/v2/index.html;
+    add_header Content-Security-Policy "default-src 'self'; connect-src 'self' http://127.0.0.1:8933; img-src 'self' data: blob:; style-src 'self' 'unsafe-inline'; font-src 'self' data:; script-src 'self'; media-src 'self' blob:; object-src 'none'; frame-ancestors 'none'" always;
+  }
+}

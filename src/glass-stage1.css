@@ -1,0 +1,73 @@
+/* White B: shared thin-glass material, limited to phase-one navigation shells.
+ * Opaque is the safe default; no DOM copies, lenses, motion or hit-area changes.
+ * Set data-glass="off" on the root to disable without remounting product state. */
+:root {
+  --dhai-glass-b-fill: rgb(255 255 255 / 96%);
+  --dhai-glass-b-edge: rgb(122 145 177 / 24%);
+  --dhai-glass-b-shadow: 0 6px 20px rgb(23 49 80 / 7%);
+  --dhai-glass-b-highlight: inset 0 1px 0 rgb(255 255 255 / 95%), inset 0 0 0 1px rgb(255 255 255 / 70%);
+  --dhai-glass-b-blur: 3px;
+}
+.product-shell[data-role="emma"] .avatar-menu.emma-personal-menu {
+  background: #fff;
+  /* Stable reading surface across the entire scrollport; glass stays at the edge. */
+  background-image: linear-gradient(#fff, #fff);
+  background-origin: padding-box;
+  background-clip: padding-box, border-box;
+  border-color: var(--dhai-glass-b-edge);
+  box-shadow: var(--dhai-glass-b-highlight), var(--dhai-glass-b-shadow);
+}
+@media (min-width: 1024px) {
+  .product-shell[data-role="john"] .john-navigation {
+    background: #fff;
+    border-color: var(--dhai-glass-b-edge);
+    box-shadow: var(--dhai-glass-b-highlight), 4px 0 18px rgb(23 49 80 / 4%);
+  }
+}
+@supports ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .product-shell[data-role="emma"] .avatar-menu.emma-personal-menu {
+    background-color: var(--dhai-glass-b-fill);
+    -webkit-backdrop-filter: blur(var(--dhai-glass-b-blur));
+    backdrop-filter: blur(var(--dhai-glass-b-blur));
+  }
+  @media (min-width: 1024px) {
+    .product-shell[data-role="john"] .john-navigation {
+      background: var(--dhai-glass-b-fill);
+      -webkit-backdrop-filter: blur(var(--dhai-glass-b-blur));
+      backdrop-filter: blur(var(--dhai-glass-b-blur));
+    }
+  }
+}
+@media (max-width: 767px) {
+  :root { --dhai-glass-b-blur: 2px; }
+}
+/* Explicit override also permits browser QA without changing saved business data. */
+:root[data-glass="off"] .product-shell[data-role="emma"] .avatar-menu.emma-personal-menu,
+:root[data-glass="off"] .product-shell[data-role="john"] .john-navigation {
+  background: #fff;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+  box-shadow: none;
+}
+@media (prefers-reduced-transparency: reduce) {
+  .product-shell[data-role="emma"] .avatar-menu.emma-personal-menu,
+  .product-shell[data-role="john"] .john-navigation {
+    background: #fff;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    box-shadow: none;
+  }
+}
+
+@media (forced-colors: active) {
+  .product-shell[data-role="emma"] .avatar-menu.emma-personal-menu,
+  .product-shell[data-role="john"] .john-navigation,
+  :root[data-glass="off"] .product-shell[data-role="emma"] .avatar-menu.emma-personal-menu,
+  :root[data-glass="off"] .product-shell[data-role="john"] .john-navigation {
+    background: Canvas;
+    border-color: CanvasText;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    box-shadow: none;
+  }
+}

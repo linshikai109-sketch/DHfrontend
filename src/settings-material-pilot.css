@@ -1,0 +1,66 @@
+/* A single settings-dialog pilot, matched against the selected white B.
+ * R3: continuous, low-contrast edge light; no radial corner spotlights.
+ * The reading surfaces stay solid; only the narrow perimeter carries optics.
+ * No sizing, animation, orb or business-state rules. Backdrop is scoped to this settings pilot. */
+dialog.shared-dialog:has(> .dialog-body > .settings-material-pilot) {
+  --settings-b-rim: 5px;
+  background: #fff;
+  border-color: transparent;
+  box-shadow: 0 8px 20px rgb(23 49 80 / 8%);
+}
+dialog.shared-dialog:has(> .dialog-body > .settings-material-pilot)::after {
+  content: "";
+  position: absolute;
+  inset: var(--settings-b-rim);
+  border: 1px solid transparent;
+  border-radius: calc(24px - var(--settings-b-rim));
+  background: linear-gradient(#fff, #fff) padding-box, linear-gradient(125deg, rgb(255 255 255 / 96%), rgb(123 143 168 / 23%) 24%, rgb(123 143 168 / 9%) 48%, rgb(255 255 255 / 94%) 70%, rgb(123 143 168 / 20%)) border-box;
+  z-index: -1;
+  pointer-events: none;
+}
+@supports ((mask-composite: exclude) or (-webkit-mask-composite: xor)) and ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  dialog.shared-dialog:has(> .dialog-body > .settings-material-pilot) { /* Limit high-contrast backdrop contamination to the existing 5px shell. */
+    background: rgb(255 255 255 / 96%); }
+  dialog.shared-dialog:has(> .dialog-body > .settings-material-pilot)::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    padding: 1px;
+    border-radius: inherit;
+    background: linear-gradient(140deg, rgb(112 133 161 / 40%), rgb(112 133 161 / 14%) 22%, rgb(255 255 255 / 92%) 37%, rgb(112 133 161 / 34%) 58%, rgb(255 255 255 / 92%) 80%, rgb(112 133 161 / 26%));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    -webkit-backdrop-filter: blur(2px);
+    backdrop-filter: blur(2px);
+    pointer-events: none;
+  }
+}
+/* The actual E2 header/body scrollports retain their opaque content treatment. */
+dialog.shared-dialog:has(> .dialog-body > .settings-material-pilot) > :is(.dialog-head, .dialog-body) {
+  background: #fff;
+}
+:root[data-glass="off"] dialog.shared-dialog:has(> .dialog-body > .settings-material-pilot) {
+  background: #fff;
+  box-shadow: none;
+}
+:root[data-glass="off"] dialog.shared-dialog:has(> .dialog-body > .settings-material-pilot)::before,
+:root[data-glass="off"] dialog.shared-dialog:has(> .dialog-body > .settings-material-pilot)::after {
+  display: none;
+}
+@media (prefers-reduced-transparency: reduce) {
+  dialog.shared-dialog:has(> .dialog-body > .settings-material-pilot) { background: #fff; box-shadow: none; }
+  dialog.shared-dialog:has(> .dialog-body > .settings-material-pilot)::before,
+  dialog.shared-dialog:has(> .dialog-body > .settings-material-pilot)::after { display: none; }
+}
+@media (forced-colors: active) {
+  dialog.shared-dialog:has(> .dialog-body > .settings-material-pilot),
+  :root[data-glass="off"] dialog.shared-dialog:has(> .dialog-body > .settings-material-pilot) { background: Canvas; box-shadow: none; }
+  dialog.shared-dialog:has(> .dialog-body > .settings-material-pilot) > :is(.dialog-head, .dialog-body) { background: Canvas; }
+  dialog.shared-dialog:has(> .dialog-body > .settings-material-pilot)::before,
+  dialog.shared-dialog:has(> .dialog-body > .settings-material-pilot)::after { display: none; }
+}
+
+/* Material presentation only: the product behind the native modal stays white. */
+dialog.shared-dialog:has(> .dialog-body > .settings-material-pilot)::backdrop { background: rgb(25 43 62 / 13%); }

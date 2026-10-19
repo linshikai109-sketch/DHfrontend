@@ -1,0 +1,112 @@
+@font-face {
+  font-family: 'Emma Entry Jost';
+  src: url('/mvp-ui/v2/fonts/jost/jost-500.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Separate text snapshots let the copy disappear before the sky finishes. */
+.emma-entry-transition .emma-gradient-wordmark { view-transition-name: emma-wordmark; }
+.emma-entry-transition .emma-gradient-message { view-transition-name: emma-message; }
+.emma-entry-transition .emma-gradient-wordmark,
+.emma-entry-transition .emma-gradient-message { animation: none; }
+
+.emma-entry-transition::view-transition { pointer-events: none; }
+.emma-entry-transition::view-transition-group(*) { animation-duration: 420ms; }
+.emma-entry-transition::view-transition-old(root) {
+  animation: emma-sky-exit 420ms cubic-bezier(.2, .7, .2, 1) both;
+  mix-blend-mode: normal;
+}
+.emma-entry-transition::view-transition-new(root) {
+  animation: emma-surface-enter 360ms 60ms cubic-bezier(.2, .7, .2, 1) both;
+  mix-blend-mode: normal;
+}
+.emma-entry-transition::view-transition-old(emma-wordmark),
+.emma-entry-transition::view-transition-old(emma-message) {
+  animation: emma-copy-exit 160ms ease-out both;
+}
+
+.emma-entry-arriving .product-shell[data-role='emma'][data-surface='onboarding'] {
+  animation: emma-fallback-enter 360ms ease-out both;
+}
+
+@keyframes emma-copy-exit { to { opacity: 0; } }
+@keyframes emma-sky-exit { to { opacity: 0; transform: scale(.985); } }
+@keyframes emma-surface-enter {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes emma-fallback-enter {
+  from { opacity: .84; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .emma-entry-arriving .product-shell[data-role='emma'][data-surface='onboarding'],
+  .emma-entry-transition::view-transition-group(*),
+  .emma-entry-transition::view-transition-old(*),
+  .emma-entry-transition::view-transition-new(*) { animation: none !important; }
+}
+
+.emma-gradient-wordmark,
+.emma-gradient-message {
+  position: absolute;
+  margin: 0;
+  font-family: 'Emma Entry Jost', Jost, sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  line-height: 1.2;
+  letter-spacing: 0;
+  pointer-events: none;
+}
+
+.emma-gradient-wordmark {
+  top: 4.5%;
+  left: 3%;
+  font-size: clamp(28px, 5vw, 76px);
+  color: #fff;
+  animation: emma-type-settle 240ms ease-out both;
+}
+
+.emma-gradient-message {
+  top: 47%;
+  left: 62%;
+  transform: translate(-50%, -50%);
+  width: 58%;
+  font-size: clamp(36px, 6.2vw, 96px);
+  line-height: 1.16;
+  letter-spacing: -.025em;
+  text-align: center;
+  white-space: nowrap;
+  color: #fff;
+  text-shadow: 0 2px 24px rgba(4, 17, 36, .22);
+  animation: emma-type-settle 280ms 40ms ease-out both;
+}
+
+@keyframes emma-type-settle {
+  from { opacity: .86; }
+  to { opacity: 1; }
+}
+
+@media (max-width: 600px) {
+  .emma-gradient-wordmark {
+    top: 5%;
+    left: 5%;
+    font-size: 9vw;
+  }
+
+  .emma-gradient-message {
+    left: 50%;
+    width: 90%;
+    font-size: 10.8vw;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .emma-gradient-wordmark, .emma-gradient-message { animation: none; }
+}
+
+/* Keep changing sky luminance behind a stable, quiet text hierarchy. */
+.emma-gradient-entry::before { content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(180deg,rgba(5,17,32,.28),rgba(5,17,32,.12) 22%,rgba(5,17,32,.46) 48%,rgba(5,17,32,.12) 72%,transparent); }
+.emma-gradient-wordmark,.emma-gradient-message { z-index:2; }

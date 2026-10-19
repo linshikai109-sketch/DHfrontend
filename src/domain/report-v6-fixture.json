@@ -1,0 +1,142 @@
+{
+  "story": "你做过客户研究、说明改写和发布协调，帮助别人弄清问题和接下来要做的事。",
+  "sections": [
+    {
+      "title": "过去",
+      "paragraphs": [
+        "在这几段经历里，你都尝试把问题整理成别人能使用的材料。客户研究、说明改写和发布协调，都需要先弄清问题，再把信息说明白。"
+      ]
+    },
+    {
+      "title": "现在",
+      "paragraphs": [
+        "你尝试把 SQL 和 AI 流程用在实际任务里，不确定的内容仍由人检查。要把这些经验带进新工作，还需看清适用范围和实际效果。"
+      ]
+    },
+    {
+      "title": "未来",
+      "paragraphs": [
+        "产品问题分析和 AI 流程应用，都可以作为下一步尝试的方向。时间有限，建议先选一条做完整，再根据尝试结果决定怎样继续。"
+      ]
+    }
+  ],
+  "graphics": {
+    "version": 1,
+    "timeline": [
+      {
+        "label": "较早",
+        "title": "客户研究",
+        "contribution": "整理用户的任务和需求",
+        "sourceIds": [
+          "fixture:S1"
+        ]
+      },
+      {
+        "label": "当前岗位",
+        "title": "B2B产品运营",
+        "contribution": "按用户遇到的问题改写说明",
+        "sourceIds": [
+          "fixture:S2"
+        ]
+      }
+    ],
+    "undated": [
+      {
+        "label": "未标时间",
+        "title": "发布协作",
+        "contribution": "区分处理顺序，明确交接",
+        "sourceIds": [
+          "fixture:S3"
+        ]
+      }
+    ],
+    "practices": [
+      {
+        "practice": "研究 · 说明改写",
+        "approach": "理解问题与表达",
+        "sourceIds": [
+          "fixture:S1",
+          "fixture:S2"
+        ]
+      },
+      {
+        "practice": "发布协调",
+        "approach": "整理分歧与交接",
+        "sourceIds": [
+          "fixture:S3"
+        ]
+      },
+      {
+        "practice": "SQL 整理 · AI 流程运行",
+        "approach": "学习并应用工具",
+        "sourceIds": [
+          "fixture:S4",
+          "fixture:S5"
+        ]
+      }
+    ],
+    "conditions": [
+      {
+        "text": "保留现工作｜每周约2小时",
+        "sourceIds": [
+          "fixture:S6"
+        ]
+      },
+      {
+        "text": "希望先说清目标和完成标准，再自己尝试",
+        "sourceIds": [
+          "fixture:S7"
+        ]
+      }
+    ],
+    "unknown": [
+      {
+        "text": "岗位要求",
+        "sourceIds": [
+          "fixture:S8"
+        ]
+      },
+      {
+        "text": "编程深度",
+        "sourceIds": [
+          "fixture:S8"
+        ]
+      },
+      {
+        "text": "效果与稳定性",
+        "sourceIds": [
+          "fixture:S4",
+          "fixture:S5",
+          "fixture:S8"
+        ]
+      }
+    ],
+    "directions": [
+      {
+        "title": "AI产品问题分析",
+        "reason": "用上研究、内容与协作积累",
+        "sourceIds": [
+          "fixture:S1",
+          "fixture:S2",
+          "fixture:S3",
+          "fixture:S6"
+        ]
+      },
+      {
+        "title": "AI工作流应用",
+        "reason": "在已运行过的流程上继续测试",
+        "sourceIds": [
+          "fixture:S5",
+          "fixture:S6"
+        ]
+      }
+    ],
+    "stepsTitle": "按你希望的 8 周时间安排尝试",
+    "steps": [
+      "说清要解决的问题和完成标准",
+      "用作品说明问题和方案选择",
+      "请人试用，观察运行结果",
+      "对照岗位要求补充经验"
+    ]
+  }
+}

@@ -1,0 +1,27 @@
+.mobile-plan-review { position: fixed; inset: calc(var(--review-top, 0px) + var(--review-height, 100dvh) - 8px) 0 auto; transform: translateY(-100%); width: 100%; max-width: none; height: auto; max-height: calc(var(--review-height, 100dvh) - 16px - env(safe-area-inset-top)); margin: 0; padding: 0; border: 0; border-radius: 16px 16px 0 0; background: #fff; color: #193656; box-shadow: 0 -8px 32px #1936561a; }
+.mobile-plan-review[open] { display: flex; flex-direction: column; }
+.mobile-plan-review::backdrop { background: #19365666; }
+.mobile-plan-review header { flex: none; padding: 16px 20px 12px; border-bottom: 1px solid #dce4ee; }
+.mobile-plan-review h2 { font-size: 20px; line-height: 1.4; margin: 0 0 4px; }
+.mobile-plan-review header p { margin: 0; font-size: 16px; line-height: 1.5; overflow-wrap: anywhere; }
+.mobile-plan-review .mobile-review-body { flex: 0 1 auto; min-height: 0; overflow-y: auto; overscroll-behavior: contain; padding: 16px 20px; margin: 0; border: 0; background: transparent; border-radius: 0; font-size: 16px; line-height: 1.5; animation: none; scrollbar-color: #426487 #fff; }
+.mobile-plan-review footer { flex: none; display: flex; gap: 12px; padding: 12px 20px max(12px, env(safe-area-inset-bottom)); border-top: 1px solid #dce4ee; background: #fff; }
+.mobile-plan-review footer .button { flex: 1; min-height: 48px; font-size: 16px; }
+.mobile-review-content { display: flow-root; }
+.mobile-plan-review .mobile-plan-changes section + section { margin-top: 20px; }
+.mobile-plan-review .mobile-plan-changes h3 { margin: 0 0 4px; font-size: 16px; line-height: 1.5; font-weight: 700; }
+.mobile-plan-review .mobile-plan-changes h3 span { font-weight: 400; color: #426487; font-size: 14px; }
+.mobile-plan-review .mobile-plan-changes ul { list-style: none; margin: 0; padding: 0; font-size: 16px; color: #193656; }
+.mobile-plan-review .mobile-plan-changes li { margin: 0; padding: 8px 0; border-bottom: 1px solid #dce4ee; overflow-wrap: anywhere; }
+.mobile-plan-review .mobile-plan-changes li:last-child { border-bottom: 0; }
+.mobile-plan-review .mobile-plan-changes h4 { margin: 0; font-size: 16px; line-height: 1.5; font-weight: 600; }
+.mobile-plan-review .mobile-plan-changes .mobile-change-meta { margin: 2px 0 0; color: #426487; font-size: 14px; line-height: 1.5; }
+.mobile-plan-review .mobile-plan-changes .mobile-change-before { margin: 6px 0 0; font-size: 16px; line-height: 1.5; color: #426487; }
+.mobile-plan-review .mobile-plan-changes details { margin-top: 16px; }
+.mobile-plan-review .mobile-plan-changes summary { font-size: 14px; color: #426487; cursor: pointer; }
+.mobile-plan-review .mobile-plan-changes .mobile-change-consequence { margin: 16px 0 0; font-size: 14px; line-height: 1.5; color: #426487; }
+.mobile-plan-review .mobile-review-stale { padding: 0 0 16px; margin-bottom: 16px; border-bottom: 1px solid #dce4ee; }
+.mobile-review-stale p { margin: 0 0 8px; }
+.mobile-plan-review :focus-visible { outline: 2px solid #426487; outline-offset: 3px; }
+.mobile-plan-review ::selection { background: #dce4ee; }
+@media (max-width: 767px) { .workbench-shell[data-plan-review="true"] .discussion-dock { visibility: hidden; pointer-events: none; } }

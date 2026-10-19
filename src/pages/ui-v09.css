@@ -1,0 +1,18 @@
+/* The closed canvas has one launcher; the hidden sheet navigation must not cover form actions. */
+@media (max-width:760px) {
+  .onboarding-layout .onboarding-visual.preview-sheet-closed .path-preview-switch { display:none; }
+  .onboarding-layout.has-closed-sheet .question-panel { padding-bottom:calc(104px + env(safe-area-inset-bottom)); }
+  .onboarding-layout .context-panel.sheet-half,
+  .onboarding-layout .onboarding-visual .context-panel.sheet-half {
+    position:fixed; inset:auto 0 0; z-index:60; height:46dvh; min-height:300px; margin:0;
+  }
+  .onboarding-layout .onboarding-visual.preview-sheet-half .path-preview-switch {
+    position:fixed; inset:auto auto calc(max(46dvh,300px) - 68px) 18px; z-index:65; margin:0;
+  }
+  .onboarding-layout .onboarding-visual.preview-sheet-half .canvas-heading>h2 { visibility:hidden; }
+  .onboarding-layout.has-half-sheet .question-panel { padding-bottom:calc(max(46dvh,300px) + 32px); }
+  .onboarding-layout .context-panel.sheet-full { height:100dvh; }
+  .onboarding-layout .canvas-tray { bottom:max(16px,env(safe-area-inset-bottom)); min-height:48px; }
+  .onboarding-layout[data-board-unread="true"] .canvas-tray { background:#e9f1fc; color:#193454; border-color:#86a4c8; }
+  .onboarding-layout[data-board-unread="true"] .canvas-tray .badge { background:#d7e4f4; color:#193454; }
+}

@@ -1,0 +1,89 @@
+/* White B material for the existing shells. The reading plane is opaque;
+ * only the one-pixel outer edge can sample at most 4% of its backdrop.
+ * No extra DOM, filters, transforms, isolation or rules on the voice sphere. */
+:root {
+  --glass-b-edge: linear-gradient(140deg, rgb(112 133 161 / 40%), rgb(112 133 161 / 14%) 22%, rgb(255 255 255 / 92%) 37%, rgb(112 133 161 / 34%) 58%, rgb(255 255 255 / 92%) 80%, rgb(112 133 161 / 26%));
+  --glass-b-rim: inset 0 0 0 3px rgb(255 255 255 / 96%), inset 0 0 0 4px rgb(123 143 168 / 12%);
+  --glass-b-float: 0 8px 20px rgb(23 49 80 / 8%);
+}
+.product-shell :is(.avatar-menu, .shared-dialog, .voice-composer, .emma-inline-voice, .wb-text, .wb-caption),
+body > .mobile-plan-review {
+  border: 1px solid transparent;
+  background-color: rgb(255 255 255 / 96%);
+  background-image: linear-gradient(#fff, #fff), var(--glass-b-edge);
+  background-origin: padding-box, border-box;
+  background-clip: padding-box, border-box;
+  box-shadow: var(--glass-b-rim), var(--glass-b-float);
+}
+@media (min-width: 1024px) {
+  .product-shell[data-role="john"] .john-navigation {
+    border: 1px solid transparent;
+    background: linear-gradient(#fff, #fff) padding-box, var(--glass-b-edge) border-box rgb(255 255 255 / 96%);
+    box-shadow: var(--glass-b-rim), 4px 0 18px rgb(23 49 80 / 4%);
+  }
+}
+/* The PC voice container already groups its editor and caption. Avoid a
+ * second material rim inside it; never put an optical effect on its sphere. */
+@media (min-width: 768px) {
+  .product-shell .wb-voice {
+    border: 1px solid transparent;
+    background: linear-gradient(#fff, #fff) padding-box, var(--glass-b-edge) border-box rgb(255 255 255 / 96%);
+    box-shadow: var(--glass-b-rim), var(--glass-b-float);
+  }
+  .product-shell .wb-voice :is(.wb-text, .wb-caption) { box-shadow: none; background: #fff; }
+}
+.product-shell .shared-dialog > :is(.dialog-head, .dialog-body),
+body > .mobile-plan-review > :is(header, .mobile-review-body, footer),
+.product-shell :is(.wb-text textarea, .text-composer textarea, .wb-caption-text, .emma-inline-transcript, .emma-inline-editor) {
+  background-color: #fff;
+}
+/* Reading text must not be distorted by a browser-specific backdrop blur. */
+dialog.shared-dialog::backdrop,
+body > .mobile-plan-review::backdrop {
+  background: rgb(25 43 62 / 13%);
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+}
+.product-shell :is(.shared-dialog, .avatar-menu, .john-navigation, .wb-text, .text-composer, .emma-inline-editor) :is(button, a, input, textarea, select, summary):focus,
+body > .mobile-plan-review :is(button, a, input, textarea, select, summary):focus {
+  outline: 2px solid #214c76;
+  outline-offset: -2px;
+}
+/* Native modal centering within the visible viewport, including a panned
+ * keyboard viewport. The header and body retain their original scroll split. */
+dialog.shared-dialog {
+  inset-block-start: var(--dialog-viewport-top, 0px);
+  inset-block-end: max(0px, calc(100dvh - var(--dialog-viewport-top, 0px) - var(--dialog-viewport-height, 100dvh)));
+  max-height: max(100px, calc(var(--dialog-viewport-height, 100dvh) - 24px));
+}
+dialog.shared-dialog[data-viewport-short="true"] { padding: 16px; }
+dialog.shared-dialog[data-viewport-short="true"] > .dialog-head { margin-bottom: 12px; }
+dialog.shared-dialog[data-viewport-short="true"] > .dialog-head h2 { margin-block: 0; font-size: 20px; }
+.product-shell .avatar-menu {
+  max-height: calc(100dvh - 88px - env(safe-area-inset-bottom));
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+:root[data-glass="off"] .product-shell :is(.avatar-menu, .john-navigation, .shared-dialog, .voice-composer, .emma-inline-voice, .wb-text, .wb-caption, .wb-voice),
+:root[data-glass="off"] body > .mobile-plan-review {
+  background: #fff;
+  border-color: var(--line, #dce4ee);
+  box-shadow: none;
+}
+@media (prefers-reduced-transparency: reduce) {
+  .product-shell :is(.avatar-menu, .john-navigation, .shared-dialog, .voice-composer, .emma-inline-voice, .wb-text, .wb-caption, .wb-voice),
+  body > .mobile-plan-review { background: #fff; border-color: var(--line, #dce4ee); box-shadow: none; }
+}
+@media (forced-colors: active) {
+  .product-shell :is(.avatar-menu, .john-navigation, .shared-dialog, .voice-composer, .emma-inline-voice, .wb-text, .wb-caption, .wb-voice),
+  :root[data-glass="off"] .product-shell :is(.avatar-menu, .john-navigation, .shared-dialog, .voice-composer, .emma-inline-voice, .wb-text, .wb-caption, .wb-voice),
+  body > .mobile-plan-review,
+  :root[data-glass="off"] body > .mobile-plan-review {
+    background: Canvas; color: CanvasText; border-color: CanvasText; box-shadow: none;
+  }
+  .product-shell .shared-dialog > :is(.dialog-head, .dialog-body),
+  body > .mobile-plan-review > :is(header, .mobile-review-body, footer),
+  .product-shell :is(.wb-text textarea, .text-composer textarea, .wb-caption-text, .emma-inline-transcript, .emma-inline-editor) { background: Canvas; color: CanvasText; }
+  .product-shell :is(.shared-dialog, .avatar-menu, .john-navigation, .wb-text, .text-composer, .emma-inline-editor) :is(button, a, input, textarea, select, summary):focus,
+  body > .mobile-plan-review :is(button, a, input, textarea, select, summary):focus { outline-color: Highlight; }
+}

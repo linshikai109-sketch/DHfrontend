@@ -1,0 +1,19 @@
+/* Acquisition is a current stage even when the project context is hidden. */
+.product-shell[data-role="john"][data-surface="onboarding"] .shell-object.john-acquisition-context {
+  display:block;
+  min-width:0;
+  color:#243f60;
+  font-size:15px;
+  font-weight:600;
+  white-space:nowrap;
+}
+
+@media (max-width:1023px) {
+  .product-shell[data-role="john"][data-surface="onboarding"] .john-acquisition-scope {
+    display:none;
+  }
+  .product-shell[data-role="john"][data-surface="onboarding"] .shell-object.john-acquisition-context {
+    flex-shrink:0;
+    font-size:14px;
+  }
+}
